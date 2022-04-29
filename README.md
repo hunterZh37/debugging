@@ -1,4 +1,4 @@
-1. ### `cd robot-debug'`
+1. ### `cd robot-debug'
 
 
 2. ### `npm i`
