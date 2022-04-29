@@ -6,13 +6,19 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { DebugLayerMaterial, LayerMaterial, Depth, Color, Fresnel, Noise, Normal } from 'lamina'
 import { Vector3 } from 'three'
+import LAnkleRoll from './LAnkleRoll'
 
 function App() {
   const props = { base: '#ff4eb8', colorA: '#00ffff', colorB: '#ff00e3' }
   return (
     <Canvas shadows dpr={[1, 2]} camera={{ position: [2, 0, 0], fov: 80 }}>
-      <Suspense fallback={null}>
-        <Bg {...props} />
+      {/* <Suspense fallback={null}> */}
+        
+        <ambientLight intensity={0.4} />
+        <directionalLight intensity={2} castShadow shadow-mapSize-height={1024} shadow-mapSize-width={1024} />
+        <OrbitControls/>
+        <LAnkleRoll />
+        {/* <Bg {...props} />
         <Flower {...props} />
         <mesh>
           <sphereGeometry args={[0.2, 64, 64]} />
@@ -20,8 +26,9 @@ function App() {
         </mesh>
         <OrbitControls />
         <directionalLight intensity={2} castShadow shadow-mapSize-height={1024} shadow-mapSize-width={1024} />
-        <ambientLight intensity={0.4} />
-      </Suspense>
+        <ambientLight intensity={0.4} /> */}
+
+      {/* </Suspense> */}
     </Canvas>
   )
 }
